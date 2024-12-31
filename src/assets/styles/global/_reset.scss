@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     border: 0;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     vertical-align: baseline;
 }
@@ -25,9 +24,7 @@ figure {
     max-width: 100%;
     width: 100%;
     display: block;
-    -o-object-fit: cover;
     object-fit: cover;
-    -o-object-position: center center;
     object-position: center center;
 }
 
@@ -106,8 +103,6 @@ button,
 label {
     font-family: inherit;
     font-size: inherit;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
     hyphens: auto;
     background-color: transparent;
     color: inherit;
@@ -136,21 +131,14 @@ body {
     font-family: var(--primary-font);
     color: var(--primary-color);
     line-height: 1.4em;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
     hyphens: auto;
     font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Reduce animations and transitions for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     * {
-        -webkit-animation: none !important;
         animation: none !important;
-        -webkit-transition: none !important;
-        -o-transition: none !important;
         transition: none !important;
     }
 }

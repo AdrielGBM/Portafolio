@@ -1,0 +1,156 @@
+/* Reset all elements to remove default margins, paddings, borders, and set box-sizing */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+/* Ensure before and after pseudo-elements are displayed as block */
+*::before,
+*::after {
+    display: block;
+}
+
+/* Make media elements responsive and ensure they fit their container */
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
+}
+
+/* Style links to remove default text decoration and set color inheritance */
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Ensure inline links within paragraphs keep their default display */
+p a {
+    display: inline;
+}
+
+/* Remove default list styles from list items */
+li {
+    list-style-type: none;
+}
+
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure text elements inherit font styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove default quote styles */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/* Set custom selection background and text color */
+::-moz-selection {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Style form elements to inherit font styles and set block display */
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+}
+
+/* Ensure tables have collapsed borders */
+table,
+tr,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Make SVGs responsive and inherit current color */
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Style body with inherited font and color properties */
+body {
+    min-height: 100vh;
+    font-size: 100%;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    line-height: 1.4em;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce animations and transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        -webkit-animation: none !important;
+        animation: none !important;
+        -webkit-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+    }
+}

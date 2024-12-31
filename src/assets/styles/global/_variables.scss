@@ -1,0 +1,27 @@
+:root {
+    --primary-color: #0f0f0f;
+    --secondary-color: #f0f0f0;
+    --primary-font: sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #f0f0f0;
+        --secondary-color: #0f0f0f;
+    }
+
+}
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: black;
+        --secondary-color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: high) {
+    :root {
+        --primary-color: white;
+        --secondary-color: black;
+    }
+}

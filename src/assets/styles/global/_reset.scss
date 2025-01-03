@@ -85,13 +85,13 @@ q:after {
 
 /* Set custom selection background and text color */
 ::-moz-selection {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
 }
 
 ::selection {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
 }
 
 /* Style form elements to inherit font styles and set block display */
@@ -129,8 +129,8 @@ body {
     width: 100%;
     min-height: 100svh;
     font-size: 100%;
-    font-family: var(--primary-font);
-    color: var(--primary-color);
+    font-family: var(--font-secondary);
+    color: var(--color-text-primary);
     hyphens: auto;
     font-smooth: always;
 }

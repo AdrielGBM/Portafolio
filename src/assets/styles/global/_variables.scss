@@ -1,13 +1,34 @@
 :root {
-    --primary-color: #0f0f0f;
-    --secondary-color: #f0f0f0;
-    --primary-font: sans-serif;
+    /* Background colors */
+    --color-bg-primary: rgb(225, 225, 225);
+    --color-bg-primary-translucent: rgba(225, 225, 225, 0.565);
+    --color-bg-secondary: rgb(215, 215, 215);
+
+    /* Text colors */
+    --color-text-primary: rgb(30, 30, 30);
+    --color-text-secondary: rgb(100, 100, 100);
+
+    /* Other colors */
+    --color-border: rgb(155, 155, 155);
+
+    /* Fonts */
+    --font-primary: sans-serif;
+    --font-secondary: sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary-color: #f0f0f0;
-        --secondary-color: #0f0f0f;
+        /* Background colors for dark mode */
+        --color-bg-primary: rgb(30, 30, 30);
+        --color-bg-primary-translucent: rgba(28, 28, 28, 0.565);
+        --color-bg-secondary: rgb(40, 40, 40);
+
+        /* Text colors for dark mode */
+        --color-text-primary: rgb(225, 225, 225);
+        --color-text-secondary: rgb(155, 155, 155);
+
+        /* Other colors for dark mode */
+        --color-border: rgb(100, 100, 100);
     }
 
 }

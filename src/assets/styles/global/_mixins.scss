@@ -1,0 +1,15 @@
+/* Flexbox mixin */
+@mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+/* Media query mixin */
+@mixin media($min-width: 640px) {
+    @media screen and (min-width: $min-width) {
+        @content;
+
+    }
+}

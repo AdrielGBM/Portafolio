@@ -1,0 +1,16 @@
+@use "./global/mixins" as *;
+
+body {
+    background-color: var(--color-bg-primary);
+}
+
+main {
+    @include flex(column);
+    padding: 5rem;
+}
+
+svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}

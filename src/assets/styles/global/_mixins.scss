@@ -1,3 +1,10 @@
+/* Media query mixin */
+@mixin media($min-width: 640px) {
+    @media screen and (min-width: $min-width) {
+        @content;
+    }
+}
+
 /* Flexbox mixin */
 @mixin flex($direction: row, $wrap: nowrap, $justify: center, $align: center) {
     display: flex;
@@ -6,10 +13,14 @@
     align-items: $align;
 }
 
-/* Media query mixin */
-@mixin media($min-width: 640px) {
-    @media screen and (min-width: $min-width) {
-        @content;
+/* Grid mixin */
+@mixin grid($rows: 2, $gap: 5rem) {
+    display: grid;
+    grid-template-rows: repeat($rows, 1fr);
+    gap: $gap;
 
+    @include media(960px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat($rows, 1fr);
     }
 }

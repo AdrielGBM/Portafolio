@@ -103,7 +103,6 @@ button,
 label {
     font-family: inherit;
     font-size: inherit;
-    hyphens: auto;
     background-color: transparent;
     color: inherit;
     display: block;
@@ -131,7 +130,6 @@ body {
     font-size: 100%;
     font-family: var(--font-secondary);
     color: var(--color-text-primary);
-    hyphens: auto;
     font-smooth: always;
 }
 

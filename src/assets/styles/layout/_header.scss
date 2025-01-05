@@ -45,7 +45,7 @@
     &__nav {
         display: none;
 
-        @include media() {
+        @include media(960px) {
             @include flex();
             height: 100%;
             background-color: var(--color-bg-secondary);
@@ -70,7 +70,7 @@
         &-links {
             display: none;
 
-            @include media(960px) {
+            @include media() {
                 @include flex();
                 height: 100%;
                 padding: 1rem 1.5rem;

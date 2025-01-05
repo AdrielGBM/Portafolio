@@ -1,12 +1,13 @@
 @use "./global/mixins" as *;
 
 body {
+    min-width: 320px;
     background-color: var(--color-bg-primary);
 }
 
 main {
     @include flex(column);
-    padding: 5rem;
+    padding: 10svh 10vw;
 }
 
 svg {

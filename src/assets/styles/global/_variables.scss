@@ -9,7 +9,13 @@
     --color-text-secondary: rgb(100, 100, 100);
 
     /* Other colors */
-    --color-border: rgb(155, 155, 155);
+    --color-border: rgb(175, 175, 175);
+
+    /* Highlight colors */
+    --color-highlight-blue: #33ABDC;
+    --color-highlight-aqua: #33DCB9;
+    --color-highlight-green: #33DC64;
+    --color-highlight-purple: #3356DC;
 
     /* Fonts */
     --font-primary: sans-serif;
@@ -28,7 +34,13 @@
         --color-text-secondary: rgb(155, 155, 155);
 
         /* Other colors for dark mode */
-        --color-border: rgb(100, 100, 100);
+        --color-border: rgb(80, 80, 80);
+
+        /* Highlight colors */
+        --color-highlight-blue: #33ABDC;
+        --color-highlight-aqua: #33DCB9;
+        --color-highlight-green: #33DC64;
+        --color-highlight-purple: #3356DC;
     }
 
 }

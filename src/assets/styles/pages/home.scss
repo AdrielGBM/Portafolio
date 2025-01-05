@@ -1,1 +1,60 @@
-@use "../layout/header"
+@use "../global/mixins" as *;
+@use "../layout/header";
+
+.main {
+    &__home {
+        @include grid();
+
+        &-about {
+            @include flex(column, nowrap, center, start);
+            gap: 1rem;
+        }
+
+        &-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-wrap: nowrap;
+
+            &--gradient {
+                background: linear-gradient(90deg, var(--color-highlight-blue), var(--color-highlight-aqua), var(--color-highlight-green), var(--color-highlight-purple));
+                background-clip: text;
+                color: transparent;
+            }
+
+            @include media(320px) {
+                font-size: 6vw;
+            }
+
+            @include media() {
+                font-size: 2.4rem;
+            }
+        }
+
+        &-description {
+            color: var(--color-text-secondary);
+        }
+
+        &-skills {
+            @include flex(column, nowrap, center, start);
+            gap: 1rem;
+        }
+
+        &-subtitle {
+            padding-left: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: bold
+        }
+
+        &-web,
+        &-languages,
+        &-tools {
+            @include flex();
+            width: 100%;
+            padding: 1.5rem;
+            gap: 1rem;
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 1.175rem;
+        }
+    }
+}

@@ -8,6 +8,7 @@ body {
 main {
     @include flex(column);
     padding: 10svh 10vw;
+    gap: 10svh;
 }
 
 svg {

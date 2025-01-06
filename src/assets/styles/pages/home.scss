@@ -1,5 +1,6 @@
 @use "../global/mixins" as *;
 @use "../layout/header";
+@use "../layout/footer";
 
 .main {
     &__home {

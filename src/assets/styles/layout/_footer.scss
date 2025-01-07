@@ -1,13 +1,10 @@
 @use "../global/mixins" as *;
 
 .footer {
+    padding: 10svh 10vw;
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
     @include grid(3);
-
-    & {
-        padding: 10svh 10vw;
-        background-color: var(--color-bg-secondary);
-        border-top: 1px solid var(--color-border);
-    }
 
     &__section {
         @include flex(column, nowrap, start, start);
@@ -18,9 +15,7 @@
         }
 
         &-list {
-            @include flex(column, nowrap,
-                center,
-                start);
+            @include flex(column, nowrap, center, start);
             gap: 1rem
         }
 

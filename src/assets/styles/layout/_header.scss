@@ -43,7 +43,7 @@
     &__nav {
         display: none;
 
-        @include media(960px) {
+        @include media(1280px) {
             @include flex();
             height: 100%;
             @include container();
@@ -70,9 +70,8 @@
                 @include flex();
                 height: 100%;
                 padding: 1rem 1.5rem;
-                @include container();
                 gap: 1rem;
-
+                @include container();
             }
         }
 

@@ -24,3 +24,10 @@
         grid-template-columns: repeat($rows, 1fr);
     }
 }
+
+/* Container style mixin */
+@mixin container($background: --color-bg-secondary, $border: --color-border, $radius: 3.25rem) {
+    background-color: var($background);
+    border: 1px solid var($border);
+    border-radius: $radius;
+}

@@ -56,4 +56,39 @@
             @include container(--color-bg-secondary, --color-border, 1.175rem);
         }
     }
+
+    &__skills {
+        @include flex(column, nowrap, center, start);
+        width: 100%;
+        padding: 1.5rem;
+        gap: 2rem;
+        @include container(--color-bg-secondary, --color-border, 1.175rem);
+
+        &-title {
+            font-size: 1.2rem;
+            font-weight: bold
+        }
+
+        &-grid {
+            @include grid(2, 2rem);
+        }
+
+        &-container {
+            @include flex(column, nowrap, start, start);
+            gap: 1rem;
+        }
+
+        &-subtitle {
+            font-weight: bold
+        }
+
+        &-description {
+            color: var(--color-text-secondary);
+        }
+
+        &-icons {
+            @include flex();
+            gap: 1rem;
+        }
+    }
 }

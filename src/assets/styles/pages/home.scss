@@ -46,9 +46,7 @@
             font-weight: bold
         }
 
-        &-web,
-        &-languages,
-        &-tools {
+        &-container {
             @include flex();
             width: 100%;
             padding: 1.5rem;

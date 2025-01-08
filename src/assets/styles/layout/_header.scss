@@ -43,17 +43,36 @@
     &__nav {
         display: none;
 
-        @include media(1280px) {
+        @include media(640px) {
             @include flex();
             height: 100%;
             @include container();
 
+            span {
+                display: none;
+            }
+
             &-list {
                 @include flex();
+                color: var(--color-text-secondary);
+
+                @include media(1280px) {
+                    i {
+                        display: none;
+                    }
+
+                    span {
+                        display: block;
+                    }
+                }
             }
 
             &-item {
-                padding: 1rem 1.5rem;
+                padding: 1rem;
+
+                @include media(960px) {
+                    padding: 1rem 1.5rem;
+                }
             }
         }
     }
@@ -66,7 +85,7 @@
         &-links {
             display: none;
 
-            @include media() {
+            @include media(960px) {
                 @include flex();
                 height: 100%;
                 padding: 1rem 1.5rem;

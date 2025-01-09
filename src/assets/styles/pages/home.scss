@@ -55,6 +55,44 @@
         }
     }
 
+    &__education {
+        @include flex(column, nowrap, center, center);
+        gap: 2rem;
+
+        &-title {
+            font-size: 1.5rem;
+            font-weight: bold
+        }
+
+        &-container {
+            @include grid();
+        }
+
+        &-course {
+            @include flex(column, nowrap, start, start);
+            gap: 1rem;
+        }
+
+        &-info {
+            @include flex(row, nowrap, space-between);
+            width: 100%;
+        }
+
+        &-subtitle {
+            font-size: 1.2rem;
+            font-weight: bold
+        }
+
+        &-text {
+            color: var(--color-text-secondary);
+        }
+
+        &-item {
+            margin-left: 1rem;
+            list-style-type: disc;
+        }
+    }
+
     &__skills {
         @include flex(column, nowrap, center, start);
         width: 100%;
@@ -63,7 +101,7 @@
         @include container(--color-bg-secondary, --color-border, 1.175rem);
 
         &-title {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold
         }
 
@@ -77,6 +115,7 @@
         }
 
         &-subtitle {
+            font-size: 1.2rem;
             font-weight: bold
         }
 

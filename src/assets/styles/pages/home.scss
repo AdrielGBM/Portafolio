@@ -7,7 +7,7 @@
         @include grid();
 
         &-about {
-            @include flex(column, nowrap, center, start);
+            @include flex(column, center, start);
             gap: 1rem;
         }
 
@@ -36,7 +36,7 @@
         }
 
         &-skills {
-            @include flex(column, nowrap, center, start);
+            @include flex(column, center, start);
             gap: 1rem;
         }
 
@@ -55,8 +55,8 @@
         }
     }
 
-    &__education {
-        @include flex(column, nowrap, center, center);
+    &__projects {
+        @include flex(column);
         gap: 2rem;
 
         &-title {
@@ -64,17 +64,63 @@
             font-weight: bold
         }
 
+        &-grid {
+            width: 100%;
+            padding: 2rem;
+            gap: 1rem;
+            @include container(--color-bg-secondary, --color-border, 1.175rem);
+            @include grid(2, 2rem 3rem);
+        }
+
+        &-subtitle {
+            font-size: 1.2rem;
+            font-weight: bold
+        }
+
+        &-image {
+            border-radius: 0.5875rem;
+        }
+
+        &-info {
+            @include flex(column, center, start);
+            gap: 1rem;
+        }
+
+        &-description {
+            color: var(--color-text-secondary);
+        }
+
         &-container {
+            @include flex(row, space-between);
+            width: 100%;
+        }
+
+        &-icons {
+            @include flex();
+            gap: 1rem;
+        }
+    }
+
+    &__education {
+        @include flex(column);
+        gap: 2rem;
+
+        &-title {
+            font-size: 1.5rem;
+            font-weight: bold
+        }
+
+        &-grid {
             @include grid();
         }
 
-        &-course {
-            @include flex(column, nowrap, start, start);
+        &-container {
+            @include flex(column, start, start);
             gap: 1rem;
         }
 
         &-info {
-            @include flex(row, nowrap, space-between);
+            @include flex(row, space-between);
             width: 100%;
         }
 
@@ -94,9 +140,9 @@
     }
 
     &__skills {
-        @include flex(column, nowrap, center, start);
+        @include flex(column, center, start);
         width: 100%;
-        padding: 1.5rem;
+        padding: 2rem;
         gap: 2rem;
         @include container(--color-bg-secondary, --color-border, 1.175rem);
 
@@ -106,11 +152,11 @@
         }
 
         &-grid {
-            @include grid(2, 2rem);
+            @include grid(2, 2rem 3rem);
         }
 
         &-container {
-            @include flex(column, nowrap, start, start);
+            @include flex(column, start, start);
             gap: 1rem;
         }
 

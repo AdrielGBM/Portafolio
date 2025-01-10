@@ -7,7 +7,7 @@
     @include grid(3);
 
     &__section {
-        @include flex(column, nowrap, start, start);
+        @include flex(column, start, start);
         gap: 1rem;
 
         &-subtitle {
@@ -15,7 +15,7 @@
         }
 
         &-list {
-            @include flex(column, nowrap, center, start);
+            @include flex(column, center, start);
             gap: 1rem
         }
 

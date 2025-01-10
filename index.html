@@ -19,7 +19,7 @@
 <body>
   <header class="header">
     <div class="header__profile">
-      <img class="header__profile-image" src="./src/assets/images/Foto de Perfil 56x56.webp" alt="Imagen de Perfil" />
+      <img class="header__profile-image" src="./src/assets/images/Foto-de-Perfil-56x56.webp" alt="Imagen de Perfil" />
       <div class="header__profile-info">
         <span class="header__profile-name">AdrielGBM</span>
         <span class="header__profile-role">Front-End Developer</span>
@@ -28,16 +28,16 @@
     <nav class="header__nav">
       <ul class="header__nav-list">
         <li class="header__nav-item"><a href="#home"><i class="fa-solid fa-house"
-              title="Inicio"></i><span>Inicio</span></a></li>
+              aria-label="Inicio"></i><span>Inicio</span></a></li>
         <li class="header__nav-item"><a href="#projects"><i class="fa-solid fa-suitcase"
-              title="Proyectos"></i><span>Proyectos</span></a>
+              aria-label="Proyectos"></i><span>Proyectos</span></a>
         </li>
         <li class="header__nav-item"><a href="#education"><i class="fa-solid fa-user-graduate"
-              title="Educación"></i><span>Educación</span></a></li>
+              aria-label="Educación"></i><span>Educación</span></a></li>
         <li class="header__nav-item"><a href="#skills"><i class="fa-solid fa-bolt"
-              title="Habilidades"></i><span>Habilidades</span></a></li>
+              aria-label="Habilidades"></i><span>Habilidades</span></a></li>
         <li class="header__nav-item"><a href="#footer"><i class="fa-solid fa-address-book"
-              title="Contacto"></i><span>Contacto</span></a>
+              aria-label="Contacto"></i><span>Contacto</span></a>
         </li>
       </ul>
     </nav>
@@ -92,12 +92,68 @@
       </div>
     </section>
     <section id="projects" class="main__projects">
-
+      <h2 class="main__projects-title">Proyectos</h2>
+      <div class="main__projects-grid">
+        <picture>
+          <source srcset="./src/assets/images/Nómada-Chic-1920x1080.webp" media="(min-width: 1280px)" />
+          <source srcset="./src/assets/images/Nómada-Chic-1280x720.webp" media="(min-width: 960px)" />
+          <source srcset="./src/assets/images/Nómada-Chic-960x540.webp" media="(min-width: 640px)" />
+          <img class="main__projects-image" src="./src/assets/images/Nómada-Chic-640x360.webp"
+            alt="Imagen del proyecto Nómada Chic">
+        </picture>
+        <div class="main__projects-info">
+          <h3 class="main__projects-subtitle">Nómada Chic</h3>
+          <p class="main__projects-description">Nómada Chic es un proyecto realizado en grupo junto a compañeros de la
+            universidad para el curso de Arquitectura de Desarrollo Web.<br>Se utilizó HTML, CSS, JavaScript y
+            Express.js, además, se integró una pasarela de pago Stripe.
+          </p>
+          <div class="main__projects-container">
+            <div class="main__projects-icons">
+              <i class="fa-brands fa-html5" title="HTML"></i>
+              <i class="fa-brands fa-css" title="CSS"></i>
+              <i class="fa-brands fa-js" title="JavaScript"></i>
+              <i class="fa-brands fa-node-js" title="Node.js"></i>
+            </div>
+            <div class="main__projects-icons">
+              <a class="footer__section-item" href="https://github.com/AdrielGBM/nomada_chic" title="Ver Repositorio"
+                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main__projects-grid">
+        <picture>
+          <source srcset="./src/assets/images/TravelSite-1920x1080.webp" media="(min-width: 1280px)" />
+          <source srcset="./src/assets/images/TravelSite-1280x720.webp" media="(min-width: 960px)" />
+          <source srcset="./src/assets/images/TravelSite-960x540.webp" media="(min-width: 640px)" />
+          <img class="main__projects-image" src="./src/assets/images/TravelSite-640x360.webp"
+            alt="Imagen del proyecto TravelSite">
+        </picture>
+        <div class="main__projects-info">
+          <h3 class="main__projects-subtitle">TravelSite</h3>
+          <p class="main__projects-description">TravelSite es un proyecto realizado de forma individual para poner en
+            práctica las lecciones aprendidas durante el curso de Dev.F.<br> Se utilizó HTML, CSS y JavaScript básico.
+          </p>
+          <div class="main__projects-container">
+            <div class="main__projects-icons">
+              <i class="fa-brands fa-html5" title="HTML"></i>
+              <i class="fa-brands fa-css" title="CSS"></i>
+              <i class="fa-brands fa-js" title="JavaScript"></i>
+            </div>
+            <div class="main__projects-icons">
+              <a class="footer__section-item"
+                href="https://github.com/AdrielGBM/Dev.F/tree/main/kata-javascript/travelSite/" title="Ver Repositorio"
+                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
     </section>
     <section id="education" class="main__education">
       <h2 class="main__education-title">Educación</h2>
-      <div class="main__education-container">
-        <div class="main__education-course">
+      <div class="main__education-grid">
+        <div class="main__education-container">
           <div class="main__education-info">
             <h3 class="main__education-subtitle">Universidad Mayor</h3>
             <span class="main__education-text">2022 - dic. 2025</span>
@@ -114,7 +170,7 @@
             <li class="main__education-item">Desarrollo de páginas web con HTML, CSS y JavaScript.</li>
           </ul>
         </div>
-        <div class="main__education-course">
+        <div class="main__education-container">
           <div class="main__education-info">
             <h3 class="main__education-subtitle">Dev.F</h3>
             <span class="main__education-text">ago. 2024 - feb. 2025</span>

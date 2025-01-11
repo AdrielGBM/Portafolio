@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&family=Roboto&display=swap"
     rel="stylesheet">
   <!-- JavaScript -->
-  <script src="https://kit.fontawesome.com/5220de64b1.js" crossorigin="anonymous"></script>
-  <script src="./dist/scripts/app.js" defer></script>
+  <script src="https://kit.fontawesome.com/5220de64b1.js" crossorigin="anonymous" defer></script>
+  <script src="./dist/scripts/home.js" type="module" defer></script>
 </head>
 
 <body>
@@ -31,16 +31,15 @@
     </div>
     <nav class="header__nav">
       <ul class="header__nav-list">
-        <li class="header__nav-item"><a href="#home"><i class="fa-solid fa-house"
+        <li class="header__nav-item"><a class="header__nav-anchor" href="#home"><i class="fa-solid fa-house"
               aria-label="Inicio"></i><span>Inicio</span></a></li>
-        <li class="header__nav-item"><a href="#projects"><i class="fa-solid fa-suitcase"
-              aria-label="Proyectos"></i><span>Proyectos</span></a>
-        </li>
-        <li class="header__nav-item"><a href="#education"><i class="fa-solid fa-user-graduate"
-              aria-label="Educación"></i><span>Educación</span></a></li>
-        <li class="header__nav-item"><a href="#skills"><i class="fa-solid fa-bolt"
+        <li class="header__nav-item"><a class="header__nav-anchor" href="#projects"><i class="fa-solid fa-suitcase"
+              aria-label="Proyectos"></i><span>Proyectos</span></a></li>
+        <li class="header__nav-item"><a class="header__nav-anchor" href="#education"><i
+              class="fa-solid fa-user-graduate" aria-label="Educación"></i><span>Educación</span></a></li>
+        <li class="header__nav-item"><a class="header__nav-anchor" href="#skills"><i class="fa-solid fa-bolt"
               aria-label="Habilidades"></i><span>Habilidades</span></a></li>
-        <li class="header__nav-item"><a href="#footer"><i class="fa-solid fa-address-book"
+        <li class="header__nav-item"><a class="header__nav-anchor" href="#footer"><i class="fa-solid fa-address-book"
               aria-label="Contacto"></i><span>Contacto</span></a>
         </li>
       </ul>

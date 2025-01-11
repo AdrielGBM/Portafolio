@@ -11,7 +11,7 @@
         gap: 1rem;
 
         &-subtitle {
-            font-weight: bold
+            @include text(--font-primary, 1rem);
         }
 
         &-list {

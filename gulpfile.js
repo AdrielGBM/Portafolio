@@ -6,6 +6,7 @@ import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import ts from "gulp-typescript";
+import terser from "gulp-terser";
 
 gulp.task("scss", function () {
   return gulp
@@ -19,6 +20,7 @@ gulp.task("typescript", function () {
   return gulp
     .src("./src/scripts/**/*.ts")
     .pipe(ts({ noImplicitAny: true }))
+    .pipe(terser())
     .pipe(gulp.dest("./dist/scripts"));
 });
 

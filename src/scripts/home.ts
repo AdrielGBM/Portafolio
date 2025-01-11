@@ -1,6 +1,5 @@
 // Main function
 function main(): void {
-  navigator.clipboard.writeText("Hola amigos.");
   initializeAnchorLinks();
   initializeCopyToClipboard();
 }
@@ -70,8 +69,6 @@ function handleCopyToClipboard(event: Event): void {
   const email = target.dataset.copy;
   if (!email) return;
   const iconElement = target.querySelector("i");
-
-  navigator.clipboard.writeText("Hola amigos.");
 
   // Copy the email to the clipboard
   navigator.clipboard.writeText(email).then(() => {

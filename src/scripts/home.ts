@@ -2,6 +2,7 @@
 function main(): void {
   initializeAnchorLinks();
   initializeCopyToClipboard();
+  initializeCarousel();
 }
 
 // Initialize anchor link functionality
@@ -79,6 +80,34 @@ function handleCopyToClipboard(event: Event): void {
         iconElement.className = "fa-solid fa-at";
       }, 2000);
     }
+  });
+}
+
+// Initialize carousel functionality by adding click events to arrows
+function initializeCarousel(): void {
+  const carousel = document.querySelector(
+    ".main__projects-carousel"
+  ) as HTMLElement;
+  const leftArrow = document.querySelector(
+    ".main__projects-arrow--left"
+  ) as HTMLElement;
+  const rightArrow = document.querySelector(
+    ".main__projects-arrow--right"
+  ) as HTMLElement;
+  if (!carousel || !leftArrow || !rightArrow) return;
+
+  // Scroll carousel left or right when arrows are clicked
+  leftArrow.addEventListener("click", () => scrollCarousel(carousel, "left"));
+  rightArrow.addEventListener("click", () => scrollCarousel(carousel, "right"));
+}
+
+// Scroll the carousel in the specified direction
+function scrollCarousel(carousel: HTMLElement, direction: string): void {
+  const scrollAmount = carousel.offsetWidth;
+
+  carousel.scrollBy({
+    left: direction === "left" ? -scrollAmount : scrollAmount,
+    behavior: "smooth",
   });
 }
 

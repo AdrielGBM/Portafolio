@@ -7,11 +7,16 @@ body {
 
 main {
     @include flex(column);
-    padding: 10svh 10vw;
+    padding-top: 10svh;
+    padding-bottom: 10svh;
     gap: 15svh;
 
     section {
         min-height: 50svh;
+
+        @media screen and (min-height: 960px) {
+            min-height: 480px;
+        }
     }
 }
 

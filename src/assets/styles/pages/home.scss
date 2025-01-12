@@ -4,6 +4,8 @@
 
 .main {
     &__home {
+        padding-left: 10vw;
+        padding-right: 10vw;
         @include grid();
 
         &-about {
@@ -12,8 +14,8 @@
         }
 
         &-title {
-            @include text();
             text-wrap: nowrap;
+            @include text();
 
             &--gradient {
                 background: linear-gradient(90deg, var(--color-highlight-blue), var(--color-highlight-aqua), var(--color-highlight-green), var(--color-highlight-purple));
@@ -55,14 +57,57 @@
 
     &__projects {
         @include flex(column);
+        max-width: 100%;
         gap: 2rem;
 
         &-title {
             @include text(--font-primary, 1.5rem);
         }
 
+        &-wrapper {
+            @include flex();
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        &-arrow {
+            display: none;
+
+            @include media(960px) {
+                @include flex();
+                position: absolute;
+                padding: 1rem;
+                cursor: pointer;
+                z-index: 1;
+                @include container(--color-bg-secondary, --color-border, 1.175rem);
+
+                &--left {
+                    left: 2.5vw;
+                }
+
+                &--right {
+                    right: 2.5vw;
+                }
+            }
+        }
+
+        &-carousel {
+            padding-left: 10vw;
+            padding-right: 10vw;
+            display: flex;
+            gap: 5vw;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+
+            @include media(960px) {
+                gap: 10vw;
+            }
+        }
+
         &-grid {
-            width: 100%;
+            min-width: 100%;
             padding: 2rem;
             gap: 1rem;
             @include container(--color-bg-secondary, --color-border, 1.175rem);
@@ -100,6 +145,8 @@
 
     &__education {
         @include flex(column);
+        padding-left: 10vw;
+        padding-right: 10vw;
         gap: 2rem;
 
         &-title {
@@ -135,11 +182,17 @@
     }
 
     &__skills {
-        @include flex(column, center, start);
-        width: 100%;
-        padding: 2rem;
-        gap: 2rem;
-        @include container(--color-bg-secondary, --color-border, 1.175rem);
+        @include flex(column);
+        padding-left: 10vw;
+        padding-right: 10vw;
+
+        &-wrapper {
+            @include flex(column, center, start);
+            width: 100%;
+            padding: 2rem;
+            gap: 2rem;
+            @include container(--color-bg-secondary, --color-border, 1.175rem);
+        }
 
         &-title {
             @include text(--font-primary, 1.5rem);

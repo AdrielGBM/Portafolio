@@ -186,8 +186,16 @@ function toggleArrowVisibility(
   const scrollLeft = carousel.scrollLeft;
   const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
 
-  leftArrow.style.display = scrollLeft <= 0 ? "none" : "flex";
-  rightArrow.style.display = scrollLeft >= maxScrollLeft - 1 ? "none" : "flex";
+  if (scrollLeft <= 0) {
+    leftArrow.classList.add("main__projects-arrow--hide");
+  } else {
+    leftArrow.classList.remove("main__projects-arrow--hide");
+  }
+  if (scrollLeft >= maxScrollLeft - 1) {
+    rightArrow.classList.add("main__projects-arrow--hide");
+  } else {
+    rightArrow.classList.remove("main__projects-arrow--hide");
+  }
 }
 
 // Initialize copy-to-clipboard functionality

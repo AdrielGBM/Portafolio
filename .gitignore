@@ -38,3 +38,6 @@ node_modules/
 # images
 *.webp
 *.png
+
+# pdf
+*.pdf

@@ -1,15 +1,17 @@
 // Main function
 function main(): void {
   initializeAnchorLinks();
-  initializeCopyToClipboard();
+  initializeMenu();
+  initializeTheme();
   initializeCarousel();
+  initializeCopyToClipboard();
 }
 
 // Initialize anchor link functionality
 function initializeAnchorLinks(): void {
   const header = document.querySelector<HTMLElement>(".header");
   const anchorLinks = document.querySelectorAll<HTMLAnchorElement>(
-    ".header__nav-anchor"
+    ".header__nav-anchor, .header__menu-anchor"
   );
   if (!header || anchorLinks.length === 0) return;
 
@@ -55,6 +57,90 @@ function calculateScrollPosition(target: HTMLElement, offset: number): number {
   return target.offsetTop - offset;
 }
 
+// Initialize menu functionality by adding click events to options button
+function initializeMenu(): void {
+  const optionsButton = document.querySelector<HTMLElement>(
+    ".header__options-button"
+  );
+  const menuElement = document.querySelector<HTMLElement>(".header__menu");
+
+  // Toggle the menu visibility when the options button is clicked
+  optionsButton?.addEventListener("click", () => {
+    menuElement?.classList.toggle("header__menu--hide");
+  });
+
+  // Hide the menu when clicking outside of the menu
+  document.addEventListener("click", (event) => {
+    const isMenuClicked = menuElement?.contains(event.target as Node);
+    const isOptionsClicked = optionsButton?.contains(event.target as Node);
+
+    if (!isMenuClicked && !isOptionsClicked) {
+      menuElement?.classList.add("header__menu--hide");
+    }
+  });
+}
+
+// Initialize theme functionality by adding click event to theme button
+function initializeTheme(): void {
+  const themeButton = document.querySelector<HTMLElement>(
+    ".header__menu-theme"
+  );
+  if (!themeButton) return;
+
+  // Set the initial theme based on the saved preference
+  const savedTheme = localStorage.getItem("theme") || "system";
+  applyTheme(savedTheme);
+  updateThemeButton(themeButton, savedTheme);
+
+  // Change the theme when the theme button is clicked
+  themeButton.addEventListener("click", () => {
+    const currentTheme = localStorage.getItem("theme") || "system";
+    const newTheme = getNextTheme(currentTheme);
+
+    applyTheme(newTheme);
+    updateThemeButton(themeButton, newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+}
+
+// Apply the selected theme to the document
+function applyTheme(theme: string): void {
+  const htmlElement = document.documentElement;
+
+  if (theme === "light") {
+    htmlElement.setAttribute("data-theme", "light");
+  } else if (theme === "dark") {
+    htmlElement.setAttribute("data-theme", "dark");
+  } else {
+    htmlElement.removeAttribute("data-theme");
+  }
+}
+
+// Update the theme button based on the current theme
+function updateThemeButton(themeButton: HTMLElement, theme: string): void {
+  const themeIcon = themeButton.querySelector<HTMLElement>("i");
+  const themeText = themeButton.querySelector<HTMLElement>("span");
+  if (!themeIcon || !themeText) return;
+
+  if (theme === "light") {
+    themeIcon.className = "fa-solid fa-sun";
+    themeText.textContent = "Claro";
+  } else if (theme === "dark") {
+    themeIcon.className = "fa-solid fa-moon";
+    themeText.textContent = "Oscuro";
+  } else {
+    themeIcon.className = "fa-solid fa-circle-half-stroke";
+    themeText.textContent = "Sistema";
+  }
+}
+
+// Get the next theme based on the current theme
+function getNextTheme(currentTheme: string): string {
+  if (currentTheme === "system") return "light";
+  if (currentTheme === "light") return "dark";
+  return "system";
+}
+
 // Initialize copy-to-clipboard functionality
 function initializeCopyToClipboard(): void {
   const copyElement = document.querySelector<HTMLElement>(
@@ -85,20 +171,22 @@ function handleCopyToClipboard(event: Event): void {
 
 // Initialize carousel functionality by adding click events to arrows
 function initializeCarousel(): void {
-  const carousel = document.querySelector(
+  const carousel = document.querySelector<HTMLElement>(
     ".main__projects-carousel"
-  ) as HTMLElement;
-  const leftArrow = document.querySelector(
+  );
+  const leftArrow = document.querySelector<HTMLElement>(
     ".main__projects-arrow--left"
-  ) as HTMLElement;
-  const rightArrow = document.querySelector(
+  );
+  const rightArrow = document.querySelector<HTMLElement>(
     ".main__projects-arrow--right"
-  ) as HTMLElement;
-  if (!carousel || !leftArrow || !rightArrow) return;
+  );
+  if (!carousel) return;
 
   // Scroll carousel left or right when arrows are clicked
-  leftArrow.addEventListener("click", () => scrollCarousel(carousel, "left"));
-  rightArrow.addEventListener("click", () => scrollCarousel(carousel, "right"));
+  leftArrow?.addEventListener("click", () => scrollCarousel(carousel, "left"));
+  rightArrow?.addEventListener("click", () =>
+    scrollCarousel(carousel, "right")
+  );
 }
 
 // Scroll the carousel in the specified direction

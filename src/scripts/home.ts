@@ -141,6 +141,55 @@ function getNextTheme(currentTheme: string): string {
   return "system";
 }
 
+// Initialize carousel functionality by adding click events to arrows
+function initializeCarousel(): void {
+  const carousel = document.querySelector<HTMLElement>(
+    ".main__projects-carousel"
+  );
+  const leftArrow = document.querySelector<HTMLElement>(
+    ".main__projects-arrow--left"
+  );
+  const rightArrow = document.querySelector<HTMLElement>(
+    ".main__projects-arrow--right"
+  );
+  if (!carousel || !leftArrow || !rightArrow) return;
+
+  // Scroll carousel left or right when arrows are clicked
+  leftArrow.addEventListener("click", () => scrollCarousel(carousel, "left"));
+  rightArrow.addEventListener("click", () => scrollCarousel(carousel, "right"));
+
+  // Add scroll event listener to toggle arrow visibility
+  carousel.addEventListener("scroll", () =>
+    toggleArrowVisibility(carousel, leftArrow, rightArrow)
+  );
+
+  // Initial check to toggle arrow visibility on load
+  toggleArrowVisibility(carousel, leftArrow, rightArrow);
+}
+
+// Scroll the carousel in the specified direction
+function scrollCarousel(carousel: HTMLElement, direction: string): void {
+  const scrollAmount = carousel.offsetWidth;
+
+  carousel.scrollBy({
+    left: direction === "left" ? -scrollAmount : scrollAmount,
+    behavior: "smooth",
+  });
+}
+
+// Toggle the visibility of arrows based on the carousel's scroll position
+function toggleArrowVisibility(
+  carousel: HTMLElement,
+  leftArrow: HTMLElement,
+  rightArrow: HTMLElement
+): void {
+  const scrollLeft = carousel.scrollLeft;
+  const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
+
+  leftArrow.style.display = scrollLeft <= 0 ? "none" : "flex";
+  rightArrow.style.display = scrollLeft >= maxScrollLeft - 1 ? "none" : "flex";
+}
+
 // Initialize copy-to-clipboard functionality
 function initializeCopyToClipboard(): void {
   const copyElement = document.querySelector<HTMLElement>(
@@ -166,36 +215,6 @@ function handleCopyToClipboard(event: Event): void {
         iconElement.className = "fa-solid fa-at";
       }, 2000);
     }
-  });
-}
-
-// Initialize carousel functionality by adding click events to arrows
-function initializeCarousel(): void {
-  const carousel = document.querySelector<HTMLElement>(
-    ".main__projects-carousel"
-  );
-  const leftArrow = document.querySelector<HTMLElement>(
-    ".main__projects-arrow--left"
-  );
-  const rightArrow = document.querySelector<HTMLElement>(
-    ".main__projects-arrow--right"
-  );
-  if (!carousel) return;
-
-  // Scroll carousel left or right when arrows are clicked
-  leftArrow?.addEventListener("click", () => scrollCarousel(carousel, "left"));
-  rightArrow?.addEventListener("click", () =>
-    scrollCarousel(carousel, "right")
-  );
-}
-
-// Scroll the carousel in the specified direction
-function scrollCarousel(carousel: HTMLElement, direction: string): void {
-  const scrollAmount = carousel.offsetWidth;
-
-  carousel.scrollBy({
-    left: direction === "left" ? -scrollAmount : scrollAmount,
-    behavior: "smooth",
   });
 }
 

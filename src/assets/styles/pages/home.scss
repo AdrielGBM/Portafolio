@@ -18,7 +18,7 @@
             @include text();
 
             &--gradient {
-                background: linear-gradient(90deg, var(--color-highlight-blue), var(--color-highlight-aqua), var(--color-highlight-green), var(--color-highlight-purple));
+                background: linear-gradient(90deg, var(--color-highlight-primary), var(--color-highlight-secondary), var(--color-highlight-tertiary), var(--color-highlight-quaternary));
                 background-clip: text;
                 color: transparent;
             }

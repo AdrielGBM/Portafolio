@@ -12,10 +12,10 @@
     --color-border: rgb(175, 175, 175);
 
     /* Highlight colors */
-    --color-highlight-blue: rgb(34, 200, 128);
-    --color-highlight-aqua: rgb(34, 200, 45);
-    --color-highlight-green: rgb(106, 200, 34);
-    --color-highlight-purple: rgb(34, 189, 200);
+    --color-highlight-primary: rgb(34, 200, 128);
+    --color-highlight-secondary: rgb(34, 200, 45);
+    --color-highlight-tertiary: rgb(106, 200, 34);
+    --color-highlight-quaternary: rgb(34, 189, 200);
 
     /* Fonts */
     --font-primary: "Inter", sans-serif;
@@ -35,10 +35,10 @@
         --color-border: rgb(80, 80, 80);
 
         /* Highlight colors */
-        --color-highlight-blue: rgb(54, 220, 148);
-        --color-highlight-aqua: rgb(54, 220, 65);
-        --color-highlight-green: rgb(126, 220, 54);
-        --color-highlight-purple: rgb(54, 209, 220);
+        --color-highlight-primary: rgb(54, 220, 148);
+        --color-highlight-secondary: rgb(54, 220, 65);
+        --color-highlight-tertiary: rgb(126, 220, 54);
+        --color-highlight-quaternary: rgb(54, 209, 220);
     }
 }
 
@@ -56,10 +56,10 @@
     --color-border: rgb(175, 175, 175);
 
     /* Highlight colors */
-    --color-highlight-blue: rgb(34, 200, 128);
-    --color-highlight-aqua: rgb(34, 200, 45);
-    --color-highlight-green: rgb(106, 200, 34);
-    --color-highlight-purple: rgb(34, 189, 200);
+    --color-highlight-primary: rgb(34, 200, 128);
+    --color-highlight-secondary: rgb(34, 200, 45);
+    --color-highlight-tertiary: rgb(106, 200, 34);
+    --color-highlight-quaternary: rgb(34, 189, 200);
 }
 
 [data-theme="dark"] {
@@ -76,8 +76,8 @@
     --color-border: rgb(80, 80, 80);
 
     /* Highlight colors */
-    --color-highlight-blue: rgb(54, 220, 148);
-    --color-highlight-aqua: rgb(54, 220, 65);
-    --color-highlight-green: rgb(126, 220, 54);
-    --color-highlight-purple: rgb(54, 209, 220);
+    --color-highlight-primary: rgb(54, 220, 148);
+    --color-highlight-secondary: rgb(54, 220, 65);
+    --color-highlight-tertiary: rgb(126, 220, 54);
+    --color-highlight-quaternary: rgb(54, 209, 220);
 }

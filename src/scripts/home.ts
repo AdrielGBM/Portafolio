@@ -1,10 +1,15 @@
 // Main function
 function main(): void {
   initializeAnchorLinks();
+  initializeSectionHighlight();
   initializeMenu();
   initializeTheme();
   initializeCarousel();
   initializeCopyToClipboard();
+
+  window.addEventListener("resize", () => {
+    initializeSectionHighlight();
+  });
 }
 
 // Initialize anchor link functionality
@@ -15,20 +20,18 @@ function initializeAnchorLinks(): void {
   );
   if (!header || anchorLinks.length === 0) return;
 
-  // Get the height of the sticky header
-  const headerHeight = header.offsetHeight;
-
   // Add click event listener to each anchor link
   anchorLinks.forEach((link) => {
-    link.addEventListener("click", (event) =>
-      handleAnchorClick(event, headerHeight)
-    );
+    link.addEventListener("click", (event) => handleAnchorClick(event, header));
   });
 }
 
 // Handle the click event for anchor links
-function handleAnchorClick(event: Event, headerHeight: number): void {
+function handleAnchorClick(event: Event, header: HTMLElement): void {
   event.preventDefault();
+
+  // Get the height of the sticky header
+  const headerHeight = header.offsetHeight;
 
   // Get the target section ID
   const link = (event.target as HTMLAnchorElement).closest<HTMLAnchorElement>(
@@ -55,6 +58,46 @@ function handleAnchorClick(event: Event, headerHeight: number): void {
 // Calculate the scroll position adjusted by the header height
 function calculateScrollPosition(target: HTMLElement, offset: number): number {
   return target.offsetTop - offset;
+}
+
+// Initialize section highlight functionality using IntersectionObserver
+function initializeSectionHighlight(): void {
+  const observerOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: "0px",
+    threshold: getDynamicThreshold(),
+  };
+  const sections = document.querySelectorAll<HTMLElement>("section[id]");
+  const anchorLinks = document.querySelectorAll<HTMLAnchorElement>(
+    ".header__nav-anchor, .header__menu-anchor"
+  );
+  if (!sections.length || !anchorLinks.length) return;
+
+  // Create an observer for each section
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.id;
+      const links = document.querySelectorAll<HTMLAnchorElement>(
+        `.header__nav-anchor[href="#${id}"], .header__menu-anchor[href="#${id}"]`
+      );
+
+      // Highlight the corresponding anchor link when the section is in view
+      if (entry.isIntersecting && links.length > 0) {
+        anchorLinks.forEach((anchor) => {
+          anchor.classList.remove("active");
+        });
+        links.forEach((link) => {
+          link.classList.add("active");
+        });
+      }
+    });
+  }, observerOptions);
+  sections.forEach((section) => observer.observe(section));
+}
+
+// Get the dynamic threshold based on the window width
+function getDynamicThreshold(): number {
+  return window.innerWidth < 960 ? 0.4 : 0.9;
 }
 
 // Initialize menu functionality by adding click events to options button

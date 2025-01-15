@@ -36,8 +36,8 @@ node_modules/
 /dist
 
 # images
-*.webp
+# *.webp
 *.png
 
 # pdf
-*.pdf
+# *.pdf

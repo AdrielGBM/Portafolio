@@ -117,7 +117,7 @@
 
             &:active {
                 color: var(--color-text-primary);
-                background-color: var(--color-border)
+                background-color: var(--color-border);
             }
         }
 
@@ -178,6 +178,14 @@
             display: none;
         }
 
+        &--fade-in {
+            animation: fade-in 0.3s ease-in-out forwards;
+        }
+
+        &--fade-out {
+            animation: fade-out 0.3s ease-in-out forwards;
+        }
+
         &--mobile {
             @include media() {
                 display: none;
@@ -210,4 +218,8 @@
         height: 6.5rem;
         padding: 1.5rem;
     }
+}
+
+.active {
+    transition: background-color 0.2s ease-in-out;
 }

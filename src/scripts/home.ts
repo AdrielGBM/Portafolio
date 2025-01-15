@@ -106,10 +106,13 @@ function initializeMenu(): void {
     ".header__options-button"
   );
   const menuElement = document.querySelector<HTMLElement>(".header__menu");
+  if (!optionsButton || !menuElement) return;
 
   // Toggle the menu visibility when the options button is clicked
-  optionsButton?.addEventListener("click", () => {
-    menuElement?.classList.toggle("header__menu--hide");
+  optionsButton.addEventListener("click", () => {
+    menuElement.classList.remove("header__menu--hide");
+    menuElement.classList.toggle("header__menu--fade-out");
+    menuElement.classList.toggle("header__menu--fade-in");
   });
 
   // Hide the menu when clicking outside of the menu
@@ -118,7 +121,8 @@ function initializeMenu(): void {
     const isOptionsClicked = optionsButton?.contains(event.target as Node);
 
     if (!isMenuClicked && !isOptionsClicked) {
-      menuElement?.classList.add("header__menu--hide");
+      menuElement.classList.add("header__menu--fade-out");
+      menuElement.classList.remove("header__menu--fade-in");
     }
   });
 }
@@ -202,9 +206,9 @@ function initializeCarousel(): void {
   rightArrow.addEventListener("click", () => scrollCarousel(carousel, "right"));
 
   // Add scroll event listener to toggle arrow visibility
-  carousel.addEventListener("scroll", () =>
-    toggleArrowVisibility(carousel, leftArrow, rightArrow)
-  );
+  carousel.addEventListener("scroll", () => {
+    toggleArrowVisibility(carousel, leftArrow, rightArrow);
+  });
 
   // Initial check to toggle arrow visibility on load
   toggleArrowVisibility(carousel, leftArrow, rightArrow);
@@ -230,14 +234,20 @@ function toggleArrowVisibility(
   const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
 
   if (scrollLeft <= 0) {
-    leftArrow.classList.add("main__projects-arrow--hide");
+    leftArrow.classList.remove("main__projects-arrow--fade-in");
+    leftArrow.classList.add("main__projects-arrow--fade-out");
   } else {
     leftArrow.classList.remove("main__projects-arrow--hide");
+    leftArrow.classList.remove("main__projects-arrow--fade-out");
+    leftArrow.classList.add("main__projects-arrow--fade-in");
   }
   if (scrollLeft >= maxScrollLeft - 1) {
-    rightArrow.classList.add("main__projects-arrow--hide");
+    rightArrow.classList.remove("main__projects-arrow--fade-in");
+    rightArrow.classList.add("main__projects-arrow--fade-out");
   } else {
     rightArrow.classList.remove("main__projects-arrow--hide");
+    rightArrow.classList.remove("main__projects-arrow--fade-out");
+    rightArrow.classList.add("main__projects-arrow--fade-in");
   }
 }
 

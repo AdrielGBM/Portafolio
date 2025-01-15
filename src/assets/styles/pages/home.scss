@@ -93,6 +93,14 @@
                 &--hide {
                     display: none;
                 }
+
+                &--fade-in {
+                    animation: fade-in 0.3s ease-in-out forwards;
+                }
+
+                &--fade-out {
+                    animation: fade-out 0.3s ease-in-out forwards;
+                }
             }
         }
 
@@ -224,4 +232,8 @@
             gap: 1rem;
         }
     }
+}
+
+.active {
+    transition: background-color 0.2s ease-in-out;
 }

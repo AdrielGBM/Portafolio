@@ -5,7 +5,7 @@ function main(): void {
   initializeMenu();
   initializeTheme();
   initializeCarousel();
-  initializeCopyToClipboard();
+  initializeContactSection();
 
   window.addEventListener("resize", () => {
     initializeSectionHighlight();
@@ -251,32 +251,42 @@ function toggleArrowVisibility(
   }
 }
 
-// Initialize copy-to-clipboard functionality
-function initializeCopyToClipboard(): void {
-  const copyElement = document.querySelector<HTMLElement>(
-    ".footer__section-copy"
+// Initialize contact section functionality by adding click events
+function initializeContactSection(): void {
+  const emailElement = document.querySelector<HTMLElement>(
+    ".footer__section--email"
   );
+  const cvElement = document.querySelector<HTMLElement>(".footer__section--cv");
 
-  copyElement?.addEventListener("click", handleCopyToClipboard);
+  emailElement?.addEventListener("click", (event) => {
+    handleCopyToClipboard(event.currentTarget as HTMLElement);
+  });
+  cvElement?.addEventListener("click", (event) =>
+    toggleCheckIcon(event.currentTarget as HTMLElement, "fa-download")
+  );
 }
 
 // Handle the click event and copy to clipboard
-function handleCopyToClipboard(event: Event): void {
-  const target = event.currentTarget as HTMLElement;
-  const email = target.dataset.copy;
-  if (!email) return;
-  const iconElement = target.querySelector("i");
+function handleCopyToClipboard(target: HTMLElement): void {
+  const email = "adrielgbm@gmail.com";
 
   // Copy the email to the clipboard
   navigator.clipboard.writeText(email).then(() => {
-    if (iconElement) {
-      iconElement.className = "fa-solid fa-check";
-
-      setTimeout(() => {
-        iconElement.className = "fa-solid fa-at";
-      }, 2000);
-    }
+    toggleCheckIcon(target, "fa-at");
   });
+}
+
+// Toggle the check icon for a short period of time
+function toggleCheckIcon(target: HTMLElement, icon: string): void {
+  const iconElement = target.querySelector("i");
+
+  if (iconElement) {
+    iconElement.className = "fa-solid fa-check";
+
+    setTimeout(() => {
+      iconElement.className = `fa-solid ${icon}`;
+    }, 2000);
+  }
 }
 
 // Call the main function when the DOM is ready

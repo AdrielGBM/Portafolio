@@ -52,6 +52,12 @@
             padding: 1.5rem;
             gap: 1rem;
             @include container(--color-bg-secondary, --color-border, 1.175rem);
+
+            i:hover,
+            svg:hover {
+                transform: scale(1.5);
+                transition: transform 0.1s ease-in-out;
+            }
         }
     }
 
@@ -73,6 +79,11 @@
 
         &-arrow {
             display: none;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: transform 0.1s ease-in-out;
+            }
 
             @include media(960px) {
                 @include flex();
@@ -152,6 +163,12 @@
         &-icons {
             @include flex();
             gap: 1rem;
+
+            i:hover,
+            svg:hover {
+                transform: scale(1.5);
+                transition: transform 0.1s ease-in-out;
+            }
         }
     }
 
@@ -230,6 +247,12 @@
         &-icons {
             @include flex();
             gap: 1rem;
+
+            i:hover,
+            svg:hover {
+                transform: scale(1.5);
+                transition: transform 0.1s ease-in-out;
+            }
         }
     }
 }

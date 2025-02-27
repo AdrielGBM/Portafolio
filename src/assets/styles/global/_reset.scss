@@ -15,40 +15,20 @@
     display: block;
 }
 
-/* Make media elements responsive and ensure they fit their container */
-img,
-picture,
-video,
-iframe,
-figure {
-    max-width: 100%;
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center center;
-}
-
-/* Style links to remove default text decoration and set color inheritance */
-a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    font-size: inherit;
-}
-
-/* Ensure inline links within paragraphs keep their default display */
-p a {
-    display: inline;
-}
-
-/* Remove default list styles from list items */
-li {
-    list-style-type: none;
-}
-
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Style body with inherited font and color properties */
+body {
+    min-width: 320px;
+    width: 100%;
+    min-height: 100svh;
+    font-size: 100%;
+    font-family: var(--font-secondary);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
 }
 
 /* Ensure text elements inherit font styles */
@@ -74,24 +54,22 @@ em {
     color: inherit;
 }
 
-/* Remove default quote styles */
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
+/* Style links to remove default text decoration and set color inheritance */
+a {
+    display: block;
+    font-size: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Set custom selection background and text color */
-::-moz-selection {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
+/* Ensure inline links within paragraphs keep their default display */
+p a {
+    display: inline;
 }
 
-::selection {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
+/* Remove default list styles from list items */
+li {
+    list-style-type: none;
 }
 
 /* Style form elements to inherit font styles and set block display */
@@ -101,11 +79,11 @@ textarea,
 select,
 button,
 label {
-    font-family: inherit;
-    font-size: inherit;
-    background-color: transparent;
-    color: inherit;
     display: block;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background-color: transparent;
 }
 
 /* Ensure tables have collapsed borders */
@@ -116,21 +94,39 @@ td {
     border-spacing: 0;
 }
 
+/* Remove default quote styles */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/* Make media elements responsive and ensure they fit their container */
+img,
+picture,
+video,
+iframe,
+figure {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-position: center center;
+    object-fit: cover;
+}
+
 /* Make SVGs responsive and inherit current color */
 svg {
-    width: 100%;
     display: block;
+    width: 100%;
     fill: currentColor;
 }
 
-/* Style body with inherited font and color properties */
-body {
-    width: 100%;
-    min-height: 100svh;
-    font-size: 100%;
-    font-family: var(--font-secondary);
-    color: var(--color-text-primary);
-    font-smooth: always;
+/* Set custom selection background and text color */
+::selection {
+    color: var(--color-bg-primary);
+    background-color: var(--color-text-primary);
 }
 
 /* Reduce animations and transitions for users who prefer reduced motion */

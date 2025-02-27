@@ -245,7 +245,7 @@
         }
 
         &-icons {
-            @include flex();
+            @include flex(row, start, center, wrap);
             gap: 1rem;
 
             i:hover,

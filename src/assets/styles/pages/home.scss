@@ -156,8 +156,9 @@
         }
 
         &-container {
-            @include flex(row, space-between);
+            @include flex(row, space-between, center, wrap);
             width: 100%;
+            gap: 2rem 1rem;
         }
 
         &-icons {

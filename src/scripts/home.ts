@@ -216,7 +216,12 @@ function initializeCarousel(): void {
 
 // Scroll the carousel in the specified direction
 function scrollCarousel(carousel: HTMLElement, direction: string): void {
-  const scrollAmount = carousel.offsetWidth;
+  const card = carousel.querySelector<HTMLElement>(".main__projects-grid");
+  if (!card) return;
+
+  // Use the width of a single card as the scroll amount
+  const scrollAmount =
+    card.offsetWidth + parseInt(getComputedStyle(carousel).gap || "0", 10);
 
   carousel.scrollBy({
     left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -232,8 +237,9 @@ function toggleArrowVisibility(
 ): void {
   const scrollLeft = carousel.scrollLeft;
   const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
+  const margin = 4;
 
-  if (scrollLeft <= 0) {
+  if (scrollLeft <= margin) {
     leftArrow.classList.remove("main__projects-arrow--fade-in");
     leftArrow.classList.add("main__projects-arrow--fade-out");
   } else {
@@ -241,7 +247,7 @@ function toggleArrowVisibility(
     leftArrow.classList.remove("main__projects-arrow--fade-out");
     leftArrow.classList.add("main__projects-arrow--fade-in");
   }
-  if (scrollLeft >= maxScrollLeft - 1) {
+  if (scrollLeft >= maxScrollLeft - margin) {
     rightArrow.classList.remove("main__projects-arrow--fade-in");
     rightArrow.classList.add("main__projects-arrow--fade-out");
   } else {
